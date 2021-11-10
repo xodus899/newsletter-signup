@@ -10,6 +10,8 @@ const request = require('request');
 const https = require('https');
 // create express app
 const app = express();
+
+const eVariables = require('dotenv').config();
 // set port
 const port = process.env.PORT;
 
@@ -47,9 +49,11 @@ app.post('/', (request,response) => {
   const options = {
     method: "post",
     // generate apikey from mailchimp and place in the auth section under auth in place of ENTERAPIKEYHERE
-    auth: "chris: ENTERAPIKEYHERE"
+    auth: "chris:" + process.env.SECRETKEY
   }
+  console.log(options.auth)
   const mailChimpRequest = https.request(url, options, (mailChimpResponse) => {
+
     let statusCode = mailChimpResponse.statusCode;
 
     if ( statusCode === 200) {
@@ -72,6 +76,6 @@ app.post("/failure", (request,response) => {
   response.redirect("/")
 });
 
-app.listen(port || 3000, () => {
+app.listen(port || 2000, () => {
   console.log("Up and running.");
 });
