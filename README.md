@@ -7,3 +7,4 @@ To run locally:
     - npm install request
     - npm install https
     - npm install body-parser
+    - use port 3000 for localhost
