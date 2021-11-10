@@ -1,3 +1,5 @@
+//need Profile with heroku to run server code. web: node app.js
+
 const express = require('express');
 // used to get input field information
 const bodyParser = require('body-parser');
@@ -69,5 +71,5 @@ app.post("/failure", (request,response) => {
 });
 
 app.listen(port || 3000, () => {
-  console.log(`Listening on port: ${port}`);
+  console.log("Up and running.");
 });
