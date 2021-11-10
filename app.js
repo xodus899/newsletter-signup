@@ -1,4 +1,5 @@
-//need Profile with heroku to run server code. web: node app.js
+//need Profile with heroku to run server code. web: node app
+
 
 const express = require('express');
 // used to get input field information
@@ -45,7 +46,8 @@ app.post('/', (request,response) => {
   // create request to post, with any string  for auth.
   const options = {
     method: "post",
-    auth: "chris:9fb82e1219152ba250b12d1ac38d46c9-us20"
+    // generate apikey from mailchimp and place in the auth section under auth in place of ENTERAPIKEYHERE
+    auth: "chris: ENTERAPIKEYHERE"
   }
   const mailChimpRequest = https.request(url, options, (mailChimpResponse) => {
     let statusCode = mailChimpResponse.statusCode;
