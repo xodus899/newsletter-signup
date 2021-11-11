@@ -51,22 +51,23 @@ app.post('/', (request,response) => {
     // generate apikey from mailchimp and place in the auth section under auth in place of ENTERAPIKEYHERE
     auth: "chris:" + process.env.SECRETKEY
   }
-  console.log(options.auth)
   const mailChimpRequest = https.request(url, options, (mailChimpResponse) => {
 
-    let statusCode = mailChimpResponse.statusCode;
-
-    if ( statusCode === 200) {
-      response.sendFile(__dirname + "/success.html");
-    } else {
-      response.sendFile(__dirname + "/failure.html");
-    }
     mailChimpResponse.on("data", (returnedData) => {
-          // console.log(dataStatus)
+          let statusCode = mailChimpResponse.statusCode;
+          console.log(JSON.parse(returnedData).total_created)
+          if(JSON.parse(returnedData).total_created === 0) {
+              response.sendFile(__dirname + "/hostedForm.html");
+          } else if ( statusCode === 200) {
+              response.sendFile(__dirname + "/success.html");
+          } else {
+            response.sendFile(__dirname + "/failure.html");
+          }
     })
   })
   // write json data from post request
   mailChimpRequest.write(jsonData);
+  console.log(mailChimpRequest)
   // tell when to stop
   mailChimpRequest.end();
 });
