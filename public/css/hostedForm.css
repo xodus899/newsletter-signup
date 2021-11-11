@@ -1,0 +1,60 @@
+body {
+   background-color:#e0e0e0;
+ }
+.error-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.error-actions {
+  margin-top:15px;
+  margin-bottom:15px;
+}
+.error-actions .btn {
+  margin-right:10px;
+}
+
+input#mc-embedded-subscribe {
+  width:100%;
+}
+
+.top {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.middle {
+  border-radius:0;
+  margin-bottom: -1px;
+}
+
+.bottom {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.mb-4 {
+border-radius: 25px;
+}
+
+.error-actions {
+  max-width: 330px;
+  width:100%;
+  margin:0 auto;
+}
+
+.hidden-field {
+  position: absolute;
+  left: -5000px;
+}
+
+.response {
+  display:none;
+}
+
+@media only screen and (max-width: 600px) {
+  div#mc_embed_signup_scroll,input#mc-embedded-subscribe {
+    width:100%;
+  }
+}
